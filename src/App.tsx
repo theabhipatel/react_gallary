@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import Todo from "./screens/todo/Todo";
 import { store } from "./store/store";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./screens/home/Home";
 import NotFound from "./screens/NotFound";
 import NewTodo from "./screens/todo/NewTodo";
@@ -13,6 +13,11 @@ function App() {
     <div className="max-auto max-w-[1536px]">
       <BrowserRouter>
         <Provider store={store}>
+          <div className="absolute top-5 left-10">
+            <Link to={"/"}>
+              <img src="vite.svg" alt="logo" />
+            </Link>
+          </div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<Todo />} />
