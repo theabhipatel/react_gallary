@@ -4,6 +4,8 @@ import { store } from "./store/store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./screens/home/Home";
 import NotFound from "./screens/NotFound";
+import NewTodo from "./screens/todo/NewTodo";
+import UpdateTodo from "./screens/todo/UpdateTodo";
 
 function App() {
   return (
@@ -13,8 +15,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<Todo />} />
-            <Route path="/todo/new" element={<Todo />} />
-            <Route path="/todo/update/:id" element={<Todo />} />
+            <Route path="/todo/new" element={<NewTodo />} />
+            <Route path="/todo/update/:id" element={<UpdateTodo />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>

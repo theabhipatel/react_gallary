@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   removeTodo,
   toggleIsDone,
@@ -17,7 +18,19 @@ const AllTodos = () => {
 
   return (
     <div className="flex justify-center mt-5">
-      <div className="flex w-[90%] md:w-[60%] bg-gray-100 rounded-md flex-col gap-2 p-5">
+      <div className="flex w-[90%] md:w-[60%] min-h-56 bg-gray-100 rounded-md flex-col gap-2 p-5">
+        <div className="flex justify-end mb-5">
+          <Link to={"/todo/new"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              New
+            </button>
+          </Link>
+        </div>
+        {todos.length === 0 && (
+          <div className="h-full flex justify-center items-center ">
+            <h3>There is no todo found.</h3>
+          </div>
+        )}
         {todos.map((todo) => {
           const { id, title, description, isDone } = todo;
           return (
@@ -42,9 +55,11 @@ const AllTodos = () => {
                 </div>
               </div>
               <div className="flex items-start gap-2">
-                <button className="h-6 w-8 border rounded-sm border-green-700 flex justify-center items-center text-green-700 text-sm">
-                  Edit
-                </button>
+                <Link to={`/todo/update/${id}`}>
+                  <button className="h-6 w-8 border rounded-sm border-green-700 flex justify-center items-center text-green-700 text-sm">
+                    Edit
+                  </button>
+                </Link>
                 <button
                   onClick={() => handleDeleteTodo(id)}
                   className="h-6 w-8 border rounded-sm border-red-700 flex justify-center items-center text-red-700 text-sm"
