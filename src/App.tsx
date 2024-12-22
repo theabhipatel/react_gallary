@@ -8,15 +8,16 @@ import NewTodo from "./screens/todo/NewTodo";
 import UpdateTodo from "./screens/todo/UpdateTodo";
 import DynamicFrom from "./screens/dynamicForm/DynamicFrom";
 import Accordion from "./screens/accordion/Accordion";
+import InfiniteScroll from "./screens/infiniteScroll/InfiniteScroll";
 
 function App() {
   return (
     <div className="max-auto max-w-[1536px]">
       <BrowserRouter>
         <Provider store={store}>
-          <div className="fixed top-5 left-10 z-50">
+          <div className="fixed top-5 left-10 z-50 ">
             <Link to={"/"}>
-              <img src="vite.svg" alt="logo" />
+              <img src="vite.svg" alt="logo" className="drop-shadow-2xl" />
             </Link>
           </div>
           <Routes>
@@ -26,6 +27,7 @@ function App() {
             <Route path="/todo/update/:id" element={<UpdateTodo />} />
             <Route path="/dynamic-form" element={<DynamicFrom />} />
             <Route path="/accordion" element={<Accordion />} />
+            <Route path="/infinite-scroll" element={<InfiniteScroll />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>
