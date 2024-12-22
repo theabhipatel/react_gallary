@@ -12,8 +12,10 @@ interface IInitialState {
   todos: ITodo[];
 }
 
+const localTodos = localStorage.getItem("todos");
+
 const initialState: IInitialState = {
-  todos: [],
+  todos: localTodos ? (JSON.parse(localTodos) as ITodo[]) : [],
 };
 
 export const todoSlice = createSlice({
@@ -22,11 +24,13 @@ export const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action: PayloadAction<ITodo>) => {
       state.todos.unshift(action.payload);
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     removeTodo: (state, action: PayloadAction<string>) => {
       const todoId = action.payload;
       const newTodos = state.todos.filter((todo) => todo.id !== todoId);
       state.todos = newTodos;
+      localStorage.setItem("todos", JSON.stringify(newTodos));
     },
     toggleIsDone: (state, action: PayloadAction<string>) => {
       const todoId = action.payload;
@@ -47,6 +51,7 @@ export const todoSlice = createSlice({
         const todo = state.todos[todoIndex];
         todo.isDone = !todo.isDone;
         state.todos[todoIndex] = todo;
+        localStorage.setItem("todos", JSON.stringify(state.todos));
       }
     },
     updateTodo: (state, action: PayloadAction<ITodo>) => {
@@ -54,6 +59,7 @@ export const todoSlice = createSlice({
       const todoIndex = state.todos.findIndex((todo) => todo.id === todoId);
       if (todoIndex > -1) {
         state.todos[todoIndex] = action.payload;
+        localStorage.setItem("todos", JSON.stringify(state.todos));
       }
     },
   },
