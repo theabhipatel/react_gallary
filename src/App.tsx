@@ -6,6 +6,7 @@ import Home from "./screens/home/Home";
 import NotFound from "./screens/NotFound";
 import NewTodo from "./screens/todo/NewTodo";
 import UpdateTodo from "./screens/todo/UpdateTodo";
+import DynamicFrom from "./screens/dynamicForm/DynamicFrom";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/todo" element={<Todo />} />
             <Route path="/todo/new" element={<NewTodo />} />
             <Route path="/todo/update/:id" element={<UpdateTodo />} />
+            <Route path="/dynamic-form" element={<DynamicFrom />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>
