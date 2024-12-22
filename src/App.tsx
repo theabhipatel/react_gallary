@@ -1,8 +1,14 @@
+import { Provider } from "react-redux";
+import Todo from "./screens/todo/Todo";
+import { store } from "./store/store";
+
 function App() {
   return (
-    <h1 className="text-5xl bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600 font-bold text-transparent text-center mt-5">
-      Todo App With Redux Toolkit
-    </h1>
+    <div className="max-auto max-w-[1536px]">
+      <Provider store={store}>
+        <Todo />
+      </Provider>
+    </div>
   );
 }
 
