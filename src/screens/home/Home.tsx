@@ -18,7 +18,7 @@ const Home = () => {
               Dynamic Form
             </button>
           </Link>
-          <Link to={"/accrodian"}>
+          <Link to={"/accordion"}>
             <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
               Accordian
             </button>

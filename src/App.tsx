@@ -7,13 +7,14 @@ import NotFound from "./screens/NotFound";
 import NewTodo from "./screens/todo/NewTodo";
 import UpdateTodo from "./screens/todo/UpdateTodo";
 import DynamicFrom from "./screens/dynamicForm/DynamicFrom";
+import Accordion from "./screens/accordion/Accordion";
 
 function App() {
   return (
     <div className="max-auto max-w-[1536px]">
       <BrowserRouter>
         <Provider store={store}>
-          <div className="absolute top-5 left-10">
+          <div className="fixed top-5 left-10 z-50">
             <Link to={"/"}>
               <img src="vite.svg" alt="logo" />
             </Link>
@@ -24,6 +25,7 @@ function App() {
             <Route path="/todo/new" element={<NewTodo />} />
             <Route path="/todo/update/:id" element={<UpdateTodo />} />
             <Route path="/dynamic-form" element={<DynamicFrom />} />
+            <Route path="/accordion" element={<Accordion />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>
