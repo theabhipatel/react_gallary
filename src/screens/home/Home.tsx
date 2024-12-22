@@ -9,9 +9,29 @@ const Home = () => {
       <div className="flex justify-center">
         <div className="w-[90%] md:w-[60%] p-5 rounded-md flex justify-center items-center gap-2 mt-2 bg-indigo-600/10">
           <Link to={"/todo"}>
-            <div className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
               Todo App
-            </div>
+            </button>
+          </Link>
+          <Link to={"/dynamic-form"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              Dynamic Form
+            </button>
+          </Link>
+          <Link to={"/accrodian"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              Accordian
+            </button>
+          </Link>
+          <Link to={"/infinite-scroll"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              Infinite Scroll
+            </button>
+          </Link>
+          <Link to={"/drag-and-drop"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              Dran and Drop
+            </button>
           </Link>
         </div>
       </div>
