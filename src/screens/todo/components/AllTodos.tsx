@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   ITodo,
   removeTodo,
@@ -9,9 +9,12 @@ import { useEffect, useState } from "react";
 
 const AllTodos = () => {
   const dispatch = useAppDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { todos } = useAppSelector((state) => state.todo);
   const [filteredTodos, setFilteredTodos] = useState<ITodo[]>(todos);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState(
+    searchParams.get("search") || ""
+  );
   const [debouncedSearchText, setDebouncedSearchText] = useState("");
 
   /** ---> Debouncing search text */
@@ -28,8 +31,10 @@ const AllTodos = () => {
   /** --->  filteredTodos based on search */
   useEffect(() => {
     if (!debouncedSearchText) {
+      setSearchParams({});
       setFilteredTodos(todos);
     } else {
+      setSearchParams({ search: debouncedSearchText });
       const searchedTodos = todos.filter((todo) => {
         return (
           todo.title
@@ -42,7 +47,7 @@ const AllTodos = () => {
       });
       setFilteredTodos(searchedTodos);
     }
-  }, [debouncedSearchText]);
+  }, [todos, debouncedSearchText]);
 
   const handleToggleTodoIsDone = (id: string) => {
     dispatch(toggleIsDone(id));
