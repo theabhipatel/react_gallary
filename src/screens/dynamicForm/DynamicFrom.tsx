@@ -34,7 +34,11 @@ const DynamicFrom = () => {
   };
 
   const handleRemoveField = (index: number) => {
-    setFormFields((formFields) => formFields.filter((_, idx) => idx !== index));
+    if (formFields.length > 1) {
+      setFormFields((formFields) =>
+        formFields.filter((_, idx) => idx !== index)
+      );
+    }
   };
 
   return (
@@ -91,6 +95,7 @@ const DynamicFrom = () => {
                 />
                 <div className="w-full col-span-2">
                   <button
+                    type="button"
                     onClick={() => handleRemoveField(index)}
                     className="bg-red-500/90 h-8 w-10 flex justify-center items-center rounded-md text-white"
                   >
