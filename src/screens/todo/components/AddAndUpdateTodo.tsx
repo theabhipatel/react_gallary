@@ -27,7 +27,7 @@ const AddAndUpdateTodo: FC<IProps> = ({ id }) => {
         navigate("/todo");
       }
     }
-  }, []);
+  }, [id]);
 
   const handleSave = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

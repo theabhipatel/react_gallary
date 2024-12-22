@@ -1,13 +1,48 @@
 import { Link } from "react-router-dom";
 import {
+  ITodo,
   removeTodo,
   toggleIsDone,
 } from "../../../store/features/todo/todoSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { useEffect, useState } from "react";
 
 const AllTodos = () => {
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector((state) => state.todo);
+  const [filteredTodos, setFilteredTodos] = useState<ITodo[]>(todos);
+  const [searchText, setSearchText] = useState("");
+  const [debouncedSearchText, setDebouncedSearchText] = useState("");
+
+  /** ---> Debouncing search text */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchText(searchText);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchText]);
+
+  /** --->  filteredTodos based on search */
+  useEffect(() => {
+    if (!debouncedSearchText) {
+      setFilteredTodos(todos);
+    } else {
+      const searchedTodos = todos.filter((todo) => {
+        return (
+          todo.title
+            .toLowerCase()
+            .includes(debouncedSearchText.toLowerCase()) ||
+          todo.description
+            .toLowerCase()
+            .includes(debouncedSearchText.toLowerCase())
+        );
+      });
+      setFilteredTodos(searchedTodos);
+    }
+  }, [debouncedSearchText]);
 
   const handleToggleTodoIsDone = (id: string) => {
     dispatch(toggleIsDone(id));
@@ -26,12 +61,35 @@ const AllTodos = () => {
             </button>
           </Link>
         </div>
+
         {todos.length === 0 && (
           <div className="h-full flex justify-center items-center ">
             <h3>There is no todo found.</h3>
           </div>
         )}
-        {todos.map((todo) => {
+
+        {todos.length > 0 && (
+          <div className="h-full flex my-2 items-center ">
+            <input
+              type="search"
+              placeholder="Search for todos"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className="p-0.5 h-8 px-2 rounded-l-md border-2 border-transparent outline-none focus:border-indigo-500"
+            />
+            <button className="w-20 flex items-center justify-center h-8 bg-indigo-500 text-white rounded-r-md ">
+              {" "}
+              Search
+            </button>
+          </div>
+        )}
+
+        {todos.length > 0 && filteredTodos.length === 0 && (
+          <div className="h-full flex justify-center items-center ">
+            <h3>There is no todo match Search.</h3>
+          </div>
+        )}
+        {filteredTodos.map((todo) => {
           const { id, title, description, isDone } = todo;
           return (
             <div
