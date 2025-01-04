@@ -10,6 +10,7 @@ import DynamicFrom from "./screens/dynamicForm/DynamicFrom";
 import Accordion from "./screens/accordion/Accordion";
 import InfiniteScroll from "./screens/infiniteScroll/InfiniteScroll";
 import NoInternet from "./screens/noInternet/NoInternet";
+import ProgressBar from "./screens/progressBar/ProgressBar";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/infinite-scroll" element={<InfiniteScroll />} />
             <Route path="/no-internet" element={<NoInternet />} />
+            <Route path="/progress" element={<ProgressBar />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>

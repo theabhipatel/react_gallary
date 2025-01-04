@@ -38,6 +38,11 @@ const Home = () => {
               No Internet
             </button>
           </Link>
+          <Link to={"/progress"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              Progress bar
+            </button>
+          </Link>
         </div>
       </div>
     </div>
