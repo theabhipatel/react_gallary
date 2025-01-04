@@ -9,6 +9,7 @@ import UpdateTodo from "./screens/todo/UpdateTodo";
 import DynamicFrom from "./screens/dynamicForm/DynamicFrom";
 import Accordion from "./screens/accordion/Accordion";
 import InfiniteScroll from "./screens/infiniteScroll/InfiniteScroll";
+import NoInternet from "./screens/noInternet/NoInternet";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/dynamic-form" element={<DynamicFrom />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/infinite-scroll" element={<InfiniteScroll />} />
+            <Route path="/no-internet" element={<NoInternet />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>

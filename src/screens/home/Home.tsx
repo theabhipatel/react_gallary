@@ -7,7 +7,7 @@ const Home = () => {
         React Practice Apps
       </h1>
       <div className="flex justify-center">
-        <div className="w-[90%] md:w-[60%] p-5 rounded-md flex justify-center items-center gap-2 mt-2 bg-indigo-600/10">
+        <div className="w-[90%] md:w-[60%] p-5 rounded-md flex flex-wrap justify-center items-center gap-2 mt-2 bg-indigo-600/10">
           <Link to={"/todo"}>
             <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
               Todo App
@@ -31,6 +31,11 @@ const Home = () => {
           <Link to={"/drag-and-drop"}>
             <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
               Dran and Drop
+            </button>
+          </Link>
+          <Link to={"/no-internet"}>
+            <button className="bg-indigo-500/90 h-8 w-32 flex justify-center items-center rounded-md text-white">
+              No Internet
             </button>
           </Link>
         </div>
