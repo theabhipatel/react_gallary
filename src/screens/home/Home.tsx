@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <h1 className="text-5xl bg-clip-text bg-gradient-to-r from-blue-500 to-pink-600 font-bold text-transparent text-center my-5">
-        React Practice Apps
+        React Gallary
       </h1>
       <div className="flex justify-center">
         <div className="w-[90%] md:w-[60%] p-5 rounded-md flex flex-wrap justify-center items-center gap-2 mt-2 bg-indigo-600/10">
