@@ -25,15 +25,15 @@ export interface IProduct {
   reviews: {
     rating: number;
     comment: string;
-    date: string; // Use Date if parsing the string to a date object
+    date: string;
     reviewerName: string;
     reviewerEmail: string;
   }[];
   returnPolicy: string;
   minimumOrderQuantity: number;
   meta: {
-    createdAt: string; // Use Date if parsing the string to a date object
-    updatedAt: string; // Use Date if parsing the string to a date object
+    createdAt: string;
+    updatedAt: string;
     barcode: string;
     qrCode: string;
   };
