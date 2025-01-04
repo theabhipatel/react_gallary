@@ -31,17 +31,19 @@ const ProgressBar = () => {
         <div>
           <div className="w-full relative h-96 bg-indigo-200/10 flex justify-center items-center">
             {/* ---> Progress bar  */}
-            <div className="w-80 h-5 rounded-full bg-gray-500/30">
-              <div
-                style={{ width: `${progress}%` }}
-                className="h-full  bg-indigo-500 rounded-full duration-300"
-              />
-            </div>
+            {progress < 100 && (
+              <div className="w-80 h-5 rounded-full bg-gray-500/30">
+                <div
+                  style={{ width: `${progress}%` }}
+                  className="h-full  bg-indigo-500 rounded-full duration-300"
+                />
+              </div>
+            )}
 
             {progress === 100 && (
-              <div className="absolute inset-0 bg-indigo-950/50 flex flex-col justify-center items-center duration-1000">
+              <div className="absolute inset-0  flex flex-col justify-center items-center duration-1000">
                 <img src={verify} alt="" className="h-52 w-52 " />
-                <h1 className="text-3xl font-bold text-white">Done</h1>
+                <h1 className="text-3xl font-bold text-green-500">Done</h1>
               </div>
             )}
           </div>
