@@ -45,6 +45,16 @@ const Home = () => {
                 Progress bar
               </button>
             </Link>
+            <Link to={"/stopwatch"}>
+              <button className="bg-indigo-500/20 backdrop-blur-lg border border-indigo-100/20 shadow-lg h-8 w-32 flex justify-center items-center rounded-md text-white hover:bg-indigo-500/40 duration-300">
+                Stopwatch
+              </button>
+            </Link>
+            <Link to={"/digital-watch"}>
+              <button className="bg-indigo-500/20 backdrop-blur-lg border border-indigo-100/20 shadow-lg h-8 w-32 flex justify-center items-center rounded-md text-white hover:bg-indigo-500/40 duration-300">
+                Digital Watch
+              </button>
+            </Link>
           </div>
         </div>
       </div>

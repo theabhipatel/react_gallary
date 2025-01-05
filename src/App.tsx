@@ -11,6 +11,8 @@ import Accordion from "./screens/accordion/Accordion";
 import InfiniteScroll from "./screens/infiniteScroll/InfiniteScroll";
 import NoInternet from "./screens/noInternet/NoInternet";
 import ProgressBar from "./screens/progressBar/ProgressBar";
+import Stopwatch from "./screens/stopwatch/Stopwatch";
+import DigitalWatch from "./screens/digitalwatch/DigitalWatch";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
             <Route path="/infinite-scroll" element={<InfiniteScroll />} />
             <Route path="/no-internet" element={<NoInternet />} />
             <Route path="/progress" element={<ProgressBar />} />
+            <Route path="/stopwatch" element={<Stopwatch />} />
+            <Route path="/digital-watch" element={<DigitalWatch />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>
