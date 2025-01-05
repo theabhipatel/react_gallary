@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 const Stopwatch = () => {
   const timerId = useRef<NodeJS.Timeout | null>(null);
-  const [seconds, setSeconds] = useState(55);
-  const [minutes, setMinutes] = useState(59);
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
   const [time, setTime] = useState("00:00:00");
 
