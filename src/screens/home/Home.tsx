@@ -55,6 +55,11 @@ const Home = () => {
                 Digital Watch
               </button>
             </Link>
+            <Link to={"/google-form"}>
+              <button className="bg-indigo-500/20 backdrop-blur-lg border border-indigo-100/20 shadow-lg h-8 w-32 flex justify-center items-center rounded-md text-white hover:bg-indigo-500/40 duration-300">
+                Google Form
+              </button>
+            </Link>
           </div>
         </div>
       </div>

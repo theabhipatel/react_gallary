@@ -13,6 +13,7 @@ import NoInternet from "./screens/noInternet/NoInternet";
 import ProgressBar from "./screens/progressBar/ProgressBar";
 import Stopwatch from "./screens/stopwatch/Stopwatch";
 import DigitalWatch from "./screens/digitalwatch/DigitalWatch";
+import GoogleForm from "./screens/googleForm/GoogleForm";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/progress" element={<ProgressBar />} />
             <Route path="/stopwatch" element={<Stopwatch />} />
             <Route path="/digital-watch" element={<DigitalWatch />} />
+            <Route path="/google-form" element={<GoogleForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Provider>
